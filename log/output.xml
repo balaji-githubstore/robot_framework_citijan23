@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230130 17:44:31.790" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo4 Alert Suite" source="C:\Mine\Company\Citi4\robot_project\selenium_suite\demo4_alert_suite.robot">
+<test id="s1-t1" name="TC1 Alert" line="8">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER_NAME}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230130 17:44:32.093" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20230130 17:44:32.092" endtime="20230130 17:44:33.622"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230130 17:44:33.622" endtime="20230130 17:44:33.741"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>20s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230130 17:44:33.741" endtime="20230130 17:44:33.743"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=https://netbanking.hdfcbank.com/netbanking/IpinResetUsingOTP.htm</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230130 17:44:33.743" level="INFO">Opening url 'https://netbanking.hdfcbank.com/netbanking/IpinResetUsingOTP.htm'</msg>
+<status status="PASS" starttime="20230130 17:44:33.743" endtime="20230130 17:44:35.252"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//img[@alt='Go']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230130 17:44:35.253" level="INFO">Clicking element 'xpath=//img[@alt='Go']'.</msg>
+<status status="PASS" starttime="20230130 17:44:35.253" endtime="20230130 17:44:35.311"/>
+</kw>
+<kw name="Handle Alert" library="SeleniumLibrary">
+<var>${alert_text}</var>
+<arg>action=ACCEPT</arg>
+<arg>timeout=20s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<msg timestamp="20230130 17:44:35.312" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:20</msg>
+<msg timestamp="20230130 17:44:35.317" level="INFO">${alert_text} = Customer ID  cannot be left blank.</msg>
+<status status="PASS" starttime="20230130 17:44:35.311" endtime="20230130 17:44:35.317"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${alert_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230130 17:44:35.317" endtime="20230130 17:44:35.318"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${alert_text}</arg>
+<arg>Customer ID${SPACE}${SPACE}cannot be left blank.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230130 17:44:35.318" endtime="20230130 17:44:35.319"/>
+</kw>
+<status status="PASS" starttime="20230130 17:44:32.092" endtime="20230130 17:44:35.319"/>
+</test>
+<status status="PASS" starttime="20230130 17:44:31.793" endtime="20230130 17:44:35.320"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Demo4 Alert Suite">Demo4 Alert Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

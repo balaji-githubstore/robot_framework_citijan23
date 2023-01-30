@@ -1,0 +1,5 @@
+Xpath
+
+//tagname[@attribute='']
+//tagname[text()='']
+
