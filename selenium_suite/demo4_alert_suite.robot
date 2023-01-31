@@ -14,3 +14,4 @@ TC1 Alert
     ${alert_text}   Handle Alert    action=ACCEPT   timeout=20s
     Log To Console    ${alert_text}
     Should Be Equal  ${alert_text}  Customer ID${SPACE}${SPACE}cannot be left blank.
+

@@ -35,3 +35,9 @@ TC5
     Select From List By Label    id=year    2000
     Click Element    xpath=//input[@value='-1']
     Click Element    name=websubmit
+
+TC7
+    Open Browser    url=https://facebook.com/       browser=chrome
+    Input Text    css=#email    demo123@gmail.com
+    Input Password    css=#pass    welcom123
+    Click Element    css=button[name='login']

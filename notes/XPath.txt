@@ -3,3 +3,33 @@ Xpath
 //tagname[@attribute='']
 //tagname[text()='']
 
+Contains
+//tagname[contains(@attribute,'')]
+//tagname[contains(text(),'')]
+
+Grouping of xpath - starts at 1
+
+(//div[@role='alert'])[3]
+
+Example:- validate in chrome - ctrl+f
+//input[@value='-1']
+
+//label[text()='Custom']
+
+//b[contains(text(),'phpMyAd')]
+
+//img[@alt='Go']
+
+//span[text()='Login']
+
+
+//div[contains(text(),'Forgot User')]
+---------------------------------
+CSS selector
+
+#id 
+.classname
+tagname[attribute='']
+[attribute='']
+
+
