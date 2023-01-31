@@ -1,63 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230131 15:31:19.694" rpa="false" schemaversion="3">
-<suite id="s1" name="Demo7 Frame" source="C:\Mine\Company\Citi4\robot_project\selenium_suite\demo7_frame.robot">
-<test id="s1-t1" name="TC1" line="5">
+<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230131 15:53:25.623" rpa="false" schemaversion="3">
+<suite id="s1" name="Valid Login Suite" source="C:\Mine\Company\Citi4\robot_project\tests\valid_login_suite.robot">
+<test id="s1-t1" name="Valid Login Test" line="8">
+<kw name="Launch Browser And Navigate To Url" library="common_functionalities" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=chrome</arg>
+<arg>browser=${BROWSER_NAME}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230131 15:31:19.980" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20230131 15:31:19.979" endtime="20230131 15:31:21.370"/>
+<msg timestamp="20230131 15:53:25.928" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20230131 15:53:25.927" endtime="20230131 15:53:27.296"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230131 15:31:21.371" endtime="20230131 15:31:21.494"/>
+<status status="PASS" starttime="20230131 15:53:27.296" endtime="20230131 15:53:27.409"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>10s</arg>
+<arg>5s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230131 15:31:21.494" endtime="20230131 15:31:21.496"/>
+<status status="PASS" starttime="20230131 15:53:27.410" endtime="20230131 15:53:27.412"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
-<arg>url=https://netbanking.hdfcbank.com/netbanking/</arg>
+<arg>url=${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230131 15:31:21.497" level="INFO">Opening url 'https://netbanking.hdfcbank.com/netbanking/'</msg>
-<status status="PASS" starttime="20230131 15:31:21.497" endtime="20230131 15:31:23.071"/>
+<msg timestamp="20230131 15:53:27.412" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
+<status status="PASS" starttime="20230131 15:53:27.412" endtime="20230131 15:53:33.481"/>
 </kw>
-<kw name="Select Frame" library="SeleniumLibrary">
-<arg>xpath=//frame[@name='login_page']</arg>
-<doc>Sets frame identified by ``locator`` as the current frame.</doc>
-<msg timestamp="20230131 15:31:23.072" level="INFO">Selecting frame 'xpath=//frame[@name='login_page']'.</msg>
-<status status="PASS" starttime="20230131 15:31:23.071" endtime="20230131 15:31:23.105"/>
+<status status="PASS" starttime="20230131 15:53:25.926" endtime="20230131 15:53:33.481"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>name=fldLoginUserId</arg>
-<arg>hello123</arg>
+<arg>css=#authUser12</arg>
+<arg>admin</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 15:31:23.106" level="INFO">Typing text 'hello123' into text field 'name=fldLoginUserId'.</msg>
-<status status="PASS" starttime="20230131 15:31:23.106" endtime="20230131 15:31:23.181"/>
+<msg timestamp="20230131 15:53:33.483" level="INFO">Typing text 'admin' into text field 'css=#authUser12'.</msg>
+<msg timestamp="20230131 15:53:38.661" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230131 15:53:38.661" level="FAIL">Element with locator 'css=#authUser12' not found.</msg>
+<status status="FAIL" starttime="20230131 15:53:33.482" endtime="20230131 15:53:38.663"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>pass</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>link=CONTINUE</arg>
+<arg>id=login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230131 15:31:23.182" level="INFO">Clicking element 'link=CONTINUE'.</msg>
-<status status="PASS" starttime="20230131 15:31:23.181" endtime="20230131 15:31:23.524"/>
+<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
 </kw>
-<kw name="Unselect Frame" library="SeleniumLibrary">
-<doc>Sets the main frame as the current frame.</doc>
-<status status="PASS" starttime="20230131 15:31:23.525" endtime="20230131 15:31:24.706"/>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>OpenEMR</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
 </kw>
-<status status="PASS" starttime="20230131 15:31:19.979" endtime="20230131 15:31:24.707"/>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230131 15:53:38.665" endtime="20230131 15:53:40.767"/>
+</kw>
+<status status="FAIL" starttime="20230131 15:53:25.926" endtime="20230131 15:53:40.767">Element with locator 'css=#authUser12' not found.</status>
 </test>
-<status status="PASS" starttime="20230131 15:31:19.697" endtime="20230131 15:31:24.708"/>
+<status status="FAIL" starttime="20230131 15:53:25.627" endtime="20230131 15:53:40.769"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo7 Frame">Demo7 Frame</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Valid Login Suite">Valid Login Suite</stat>
 </suite>
 </statistics>
 <errors>
