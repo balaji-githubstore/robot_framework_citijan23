@@ -1,74 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230131 15:53:25.623" rpa="false" schemaversion="3">
-<suite id="s1" name="Valid Login Suite" source="C:\Mine\Company\Citi4\robot_project\tests\valid_login_suite.robot">
-<test id="s1-t1" name="Valid Login Test" line="8">
+<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230131 16:34:49.657" rpa="false" schemaversion="3">
+<suite id="s1" name="Invalid Login Suite" source="C:\Mine\Company\Citi4\robot_project\tests\invalid_login_suite.robot">
+<test id="s1-t1" name="TC1" line="13">
 <kw name="Launch Browser And Navigate To Url" library="common_functionalities" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER_NAME}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230131 15:53:25.928" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20230131 15:53:25.927" endtime="20230131 15:53:27.296"/>
+<msg timestamp="20230131 16:34:52.649" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20230131 16:34:52.649" endtime="20230131 16:34:53.991"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230131 15:53:27.296" endtime="20230131 15:53:27.409"/>
+<status status="PASS" starttime="20230131 16:34:53.991" endtime="20230131 16:34:54.111"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>5s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230131 15:53:27.410" endtime="20230131 15:53:27.412"/>
+<status status="PASS" starttime="20230131 16:34:54.111" endtime="20230131 16:34:54.113"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230131 15:53:27.412" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
-<status status="PASS" starttime="20230131 15:53:27.412" endtime="20230131 15:53:33.481"/>
+<msg timestamp="20230131 16:34:54.115" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
+<status status="PASS" starttime="20230131 16:34:54.114" endtime="20230131 16:35:00.561"/>
 </kw>
-<status status="PASS" starttime="20230131 15:53:25.926" endtime="20230131 15:53:33.481"/>
+<status status="PASS" starttime="20230131 16:34:52.648" endtime="20230131 16:35:00.562"/>
 </kw>
+<kw name="Invalid Login Template">
+<arg>john</arg>
+<arg>pass</arg>
+<arg>Invalid username or password</arg>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>css=#authUser12</arg>
-<arg>admin</arg>
+<arg>css=#authUser</arg>
+<arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 15:53:33.483" level="INFO">Typing text 'admin' into text field 'css=#authUser12'.</msg>
-<msg timestamp="20230131 15:53:38.661" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230131 15:53:38.661" level="FAIL">Element with locator 'css=#authUser12' not found.</msg>
-<status status="FAIL" starttime="20230131 15:53:33.482" endtime="20230131 15:53:38.663"/>
+<msg timestamp="20230131 16:35:00.564" level="INFO">Typing text 'john' into text field 'css=#authUser'.</msg>
+<status status="PASS" starttime="20230131 16:35:00.563" endtime="20230131 16:35:00.648"/>
 </kw>
 <kw name="Input Password" library="SeleniumLibrary">
 <arg>id=clearPass</arg>
-<arg>pass</arg>
+<arg>${password}</arg>
 <doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
+<msg timestamp="20230131 16:35:00.649" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20230131 16:35:00.686" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230131 16:35:00.726" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230131 16:35:00.648" endtime="20230131 16:35:00.726"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>id=login-button</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
+<msg timestamp="20230131 16:35:00.727" level="INFO">Clicking element 'id=login-button'.</msg>
+<status status="PASS" starttime="20230131 16:35:00.726" endtime="20230131 16:35:04.094"/>
 </kw>
-<kw name="Title Should Be" library="SeleniumLibrary">
-<arg>OpenEMR</arg>
-<doc>Verifies that the current page title equals ``title``.</doc>
-<status status="NOT RUN" starttime="20230131 15:53:38.664" endtime="20230131 15:53:38.664"/>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230131 16:35:04.098" level="INFO">Verifying element '//div[contains(text(),'Invalid')]' contains exact text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20230131 16:35:04.095" endtime="20230131 16:35:04.151"/>
+</kw>
+<status status="PASS" starttime="20230131 16:35:00.562" endtime="20230131 16:35:04.152"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230131 15:53:38.665" endtime="20230131 15:53:40.767"/>
+<status status="PASS" starttime="20230131 16:35:04.153" endtime="20230131 16:35:06.270"/>
 </kw>
-<status status="FAIL" starttime="20230131 15:53:25.926" endtime="20230131 15:53:40.767">Element with locator 'css=#authUser12' not found.</status>
+<status status="PASS" starttime="20230131 16:34:52.646" endtime="20230131 16:35:06.270"/>
 </test>
-<status status="FAIL" starttime="20230131 15:53:25.627" endtime="20230131 15:53:40.769"/>
+<test id="s1-t2" name="TC1" line="13">
+<kw name="Launch Browser And Navigate To Url" library="common_functionalities" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER_NAME}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230131 16:35:06.275" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20230131 16:35:06.274" endtime="20230131 16:35:07.507"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230131 16:35:07.507" endtime="20230131 16:35:07.622"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>5s</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230131 16:35:07.623" endtime="20230131 16:35:07.624"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>url=${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230131 16:35:07.624" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
+<status status="PASS" starttime="20230131 16:35:07.624" endtime="20230131 16:35:13.833"/>
+</kw>
+<status status="PASS" starttime="20230131 16:35:06.274" endtime="20230131 16:35:13.834"/>
+</kw>
+<kw name="Invalid Login Template">
+<arg>ken</arg>
+<arg>kim</arg>
+<arg>Invalid username or password</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=#authUser</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230131 16:35:13.841" level="INFO">Typing text 'ken' into text field 'css=#authUser'.</msg>
+<status status="PASS" starttime="20230131 16:35:13.839" endtime="20230131 16:35:13.920"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20230131 16:35:13.921" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20230131 16:35:13.961" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20230131 16:35:14.006" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20230131 16:35:13.921" endtime="20230131 16:35:14.007"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=login-button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230131 16:35:14.008" level="INFO">Clicking element 'id=login-button'.</msg>
+<status status="PASS" starttime="20230131 16:35:14.007" endtime="20230131 16:35:17.091"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230131 16:35:17.093" level="INFO">Verifying element '//div[contains(text(),'Invalid')]' contains exact text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20230131 16:35:17.092" endtime="20230131 16:35:17.129"/>
+</kw>
+<status status="PASS" starttime="20230131 16:35:13.835" endtime="20230131 16:35:17.130"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230131 16:35:17.130" endtime="20230131 16:35:19.242"/>
+</kw>
+<status status="PASS" starttime="20230131 16:35:06.272" endtime="20230131 16:35:19.243"/>
+</test>
+<status status="PASS" starttime="20230131 16:34:49.659" endtime="20230131 16:35:19.246"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Valid Login Suite">Valid Login Suite</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Invalid Login Suite">Invalid Login Suite</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20230131 16:35:06.272" level="WARN">Multiple tests with name 'TC1' executed in suite 'Invalid Login Suite'.</msg>
 </errors>
 </robot>
