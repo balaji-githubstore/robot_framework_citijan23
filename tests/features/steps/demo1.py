@@ -14,12 +14,12 @@ def step_impl(context):
 
 
 @when(u'I enter username as "{text}"')
-def step_impl(context,text):
+def step_impl(context, text):
     context.driver.find_element(By.ID, "authUser").send_keys(text)
 
 
 @when(u'I enter password as "{text}"')
-def step_impl(context,text):
+def step_impl(context, text):
     context.driver.find_element(By.ID, "clearPass").send_keys(text)
 
 
@@ -29,5 +29,11 @@ def step_impl(context):
 
 
 @then(u'I should access the portal with title as "{text}"')
-def step_impl(context,text):
+def step_impl(context, text):
     assert_that(text).is_equal_to(context.driver.title)
+
+
+@then(u'I should not access to portal with error as "{error}"')
+def step_impl(context, error):
+    actual_error = context.driver.find_element(By.XPATH, "//*[contains(text(),'Invalid')]").text
+    assert_that(actual_error).contains(error)
