@@ -1,4 +1,6 @@
 import time
+
+import pytest
 from selenium import webdriver
 
 from selenium.webdriver.common.by import By
@@ -7,6 +9,8 @@ from base.webdriver_listner import WebDriverWrapper
 
 
 class TestPatient(WebDriverWrapper):
+    @pytest.mark.smoke
+    @pytest.mark.patient
     def test_add_patient(self):
         self.driver.find_element(By.ID, "authUser").send_keys("admin")
         self.driver.find_element(By.CSS_SELECTOR, "#clearPass").send_keys("pass")
@@ -42,5 +46,6 @@ class TestPatient(WebDriverWrapper):
         #click on close happy birthday
 
         #assert the patient name added
+        #assert the alert text contains Tobacco
 
         time.sleep(2)

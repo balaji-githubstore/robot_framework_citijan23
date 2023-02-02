@@ -4,7 +4,9 @@ valid_login_data = [
     ["admin", "pass", "OpenEMR"]
 ]
 
-invalid_login_data=[
-        ["kim","kim123","Invalid username or password"],
-        ["saul","saul123","Invalid username or password"]
-    ]
+invalid_login_data = [
+    ["kim", "kim123", "Invalid username or password"],
+    ["saul", "saul123", "Invalid username or password"]
+]
+
+title_data = ["OpenEMR", "OpenEMR"]
