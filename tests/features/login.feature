@@ -4,9 +4,11 @@ Feature: Login
   As a user
   I would like login to the OpenEMR portal
 
+  Background:
+    Given I have browser with openemr application
+
   @invalid    @smoke
   Scenario: Invalid Login
-    Given I have browser with openemr application
     When I enter username as "john"
     And I enter password as "john123"
     And I click on login
@@ -14,7 +16,6 @@ Feature: Login
 
   @valid
   Scenario Outline: Valid Login1
-    Given I have browser with openemr application
     When I enter username as "<username>"
     And I enter password as "<password>"
     And I click on login
