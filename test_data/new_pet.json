@@ -1,0 +1,18 @@
+{
+  "id": 20051,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "dog-20051",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+}

@@ -1,151 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230131 16:34:49.657" rpa="false" schemaversion="3">
-<suite id="s1" name="Invalid Login Suite" source="C:\Mine\Company\Citi4\robot_project\tests\invalid_login_suite.robot">
-<test id="s1-t1" name="TC1" line="13">
-<kw name="Launch Browser And Navigate To Url" library="common_functionalities" type="SETUP">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=${BROWSER_NAME}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230131 16:34:52.649" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20230131 16:34:52.649" endtime="20230131 16:34:53.991"/>
+<robot generator="Robot 6.0 (Python 3.10.2 on win32)" generated="20230203 16:52:15.567" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo1 Suite" source="C:\Mine\Company\Citi4\robot_project\api_suite\demo1_suite.robot">
+<kw name="Create Session" library="RequestsLibrary" type="SETUP">
+<arg>alias=petshop</arg>
+<arg>url=https://petstore.swagger.io/v2</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230203 16:52:15.944" level="INFO">Creating Session using : alias=petshop, url=https://petstore.swagger.io/v2, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230203 16:52:15.943" endtime="20230203 16:52:15.948"/>
 </kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230131 16:34:53.991" endtime="20230131 16:34:54.111"/>
+<test id="s1-t1" name="TC5 Delete Valid Pet" line="47">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>&amp;{headers}</var>
+<arg>api_key=abc123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230203 16:52:15.951" level="INFO">&amp;{headers} = { api_key=abc123 }</msg>
+<status status="PASS" starttime="20230203 16:52:15.950" endtime="20230203 16:52:15.951"/>
 </kw>
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>5s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230131 16:34:54.111" endtime="20230131 16:34:54.113"/>
+<kw name="DELETE On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>alias=petshop</arg>
+<arg>url=pet/20051</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
+<msg timestamp="20230203 16:52:16.893" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/pet/20051 
+ path_url=/v2/pet/20051 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'api_key': 'abc123', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230203 16:52:16.894" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/pet/20051 
+ status=404, reason=Not Found 
+ headers={'Date': 'Fri, 03 Feb 2023 11:22:17 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body=None 
+ </msg>
+<msg timestamp="20230203 16:52:16.894" level="INFO">C:\Program Files\Python310\lib\site-packages\urllib3\connectionpool.py:1043: InsecureRequestWarning: Unverified HTTPS request is being made to host 'petstore.swagger.io'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230203 16:52:16.894" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://petstore.swagger.io/v2/pet/20051</msg>
+<status status="FAIL" starttime="20230203 16:52:15.952" endtime="20230203 16:52:16.899"/>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>url=${url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230131 16:34:54.115" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
-<status status="PASS" starttime="20230131 16:34:54.114" endtime="20230131 16:35:00.561"/>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230203 16:52:16.900" endtime="20230203 16:52:16.900"/>
 </kw>
-<status status="PASS" starttime="20230131 16:34:52.648" endtime="20230131 16:35:00.562"/>
+<kw name="Log" library="BuiltIn">
+<arg>${response.json()}[message]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230203 16:52:16.901" endtime="20230203 16:52:16.901"/>
 </kw>
-<kw name="Invalid Login Template">
-<arg>john</arg>
-<arg>pass</arg>
-<arg>Invalid username or password</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>css=#authUser</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:00.564" level="INFO">Typing text 'john' into text field 'css=#authUser'.</msg>
-<status status="PASS" starttime="20230131 16:35:00.563" endtime="20230131 16:35:00.648"/>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" starttime="20230203 16:52:16.901" endtime="20230203 16:52:16.902"/>
 </kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<arg>id=clearPass</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:00.649" level="INFO">Typing password into text field 'id=clearPass'.</msg>
-<msg timestamp="20230131 16:35:00.686" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230131 16:35:00.726" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230131 16:35:00.648" endtime="20230131 16:35:00.726"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>id=login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:00.727" level="INFO">Clicking element 'id=login-button'.</msg>
-<status status="PASS" starttime="20230131 16:35:00.726" endtime="20230131 16:35:04.094"/>
-</kw>
-<kw name="Element Text Should Be" library="SeleniumLibrary">
-<arg>//div[contains(text(),'Invalid')]</arg>
-<arg>${expected_error}</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<msg timestamp="20230131 16:35:04.098" level="INFO">Verifying element '//div[contains(text(),'Invalid')]' contains exact text 'Invalid username or password'.</msg>
-<status status="PASS" starttime="20230131 16:35:04.095" endtime="20230131 16:35:04.151"/>
-</kw>
-<status status="PASS" starttime="20230131 16:35:00.562" endtime="20230131 16:35:04.152"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230131 16:35:04.153" endtime="20230131 16:35:06.270"/>
-</kw>
-<status status="PASS" starttime="20230131 16:34:52.646" endtime="20230131 16:35:06.270"/>
+<status status="FAIL" starttime="20230203 16:52:15.948" endtime="20230203 16:52:16.902">HTTPError: 404 Client Error: Not Found for url: https://petstore.swagger.io/v2/pet/20051</status>
 </test>
-<test id="s1-t2" name="TC1" line="13">
-<kw name="Launch Browser And Navigate To Url" library="common_functionalities" type="SETUP">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=${BROWSER_NAME}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230131 16:35:06.275" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20230131 16:35:06.274" endtime="20230131 16:35:07.507"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230131 16:35:07.507" endtime="20230131 16:35:07.622"/>
-</kw>
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>5s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20230131 16:35:07.623" endtime="20230131 16:35:07.624"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>url=${url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20230131 16:35:07.624" level="INFO">Opening url 'https://demo.openemr.io/b/openemr'</msg>
-<status status="PASS" starttime="20230131 16:35:07.624" endtime="20230131 16:35:13.833"/>
-</kw>
-<status status="PASS" starttime="20230131 16:35:06.274" endtime="20230131 16:35:13.834"/>
-</kw>
-<kw name="Invalid Login Template">
-<arg>ken</arg>
-<arg>kim</arg>
-<arg>Invalid username or password</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>css=#authUser</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:13.841" level="INFO">Typing text 'ken' into text field 'css=#authUser'.</msg>
-<status status="PASS" starttime="20230131 16:35:13.839" endtime="20230131 16:35:13.920"/>
-</kw>
-<kw name="Input Password" library="SeleniumLibrary">
-<arg>id=clearPass</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:13.921" level="INFO">Typing password into text field 'id=clearPass'.</msg>
-<msg timestamp="20230131 16:35:13.961" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230131 16:35:14.006" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230131 16:35:13.921" endtime="20230131 16:35:14.007"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>id=login-button</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230131 16:35:14.008" level="INFO">Clicking element 'id=login-button'.</msg>
-<status status="PASS" starttime="20230131 16:35:14.007" endtime="20230131 16:35:17.091"/>
-</kw>
-<kw name="Element Text Should Be" library="SeleniumLibrary">
-<arg>//div[contains(text(),'Invalid')]</arg>
-<arg>${expected_error}</arg>
-<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<msg timestamp="20230131 16:35:17.093" level="INFO">Verifying element '//div[contains(text(),'Invalid')]' contains exact text 'Invalid username or password'.</msg>
-<status status="PASS" starttime="20230131 16:35:17.092" endtime="20230131 16:35:17.129"/>
-</kw>
-<status status="PASS" starttime="20230131 16:35:13.835" endtime="20230131 16:35:17.130"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230131 16:35:17.130" endtime="20230131 16:35:19.242"/>
-</kw>
-<status status="PASS" starttime="20230131 16:35:06.272" endtime="20230131 16:35:19.243"/>
-</test>
-<status status="PASS" starttime="20230131 16:34:49.659" endtime="20230131 16:35:19.246"/>
+<status status="FAIL" starttime="20230203 16:52:15.573" endtime="20230203 16:52:16.903"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Invalid Login Suite">Invalid Login Suite</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Demo1 Suite">Demo1 Suite</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230131 16:35:06.272" level="WARN">Multiple tests with name 'TC1' executed in suite 'Invalid Login Suite'.</msg>
 </errors>
 </robot>
