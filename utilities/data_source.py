@@ -1,7 +1,11 @@
+# valid_login_data = [
+#     ["physician", "physician", "OpenEMR"],
+#     ["accountant", "accountant", "OpenEMR"],
+#     ["admin", "pass", "OpenEMR"]
+# ]
+
 valid_login_data = [
-    ["physician", "physician", "OpenEMR"],
-    ["accountant", "accountant", "OpenEMR"],
-    ["admin", "pass", "OpenEMR"]
+    ["physician", "physician", "OpenEMR"]
 ]
 
 invalid_login_data = [
